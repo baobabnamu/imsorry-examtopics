@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Keyboard Translation Toggle",
+  "version": "1.0",
+  "permissions": ["scripting", "tabs", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "recovery_origin": {
+      "suggested_key": {
+        "default": "Ctrl+1"
+      },
+      "description": "recovery origin page"
+    },
+    "translate_to_kr_hide_ad": {
+      "suggested_key": {
+        "default": "Ctrl+2"
+      },
+      "description": "translate to korean and hide ADs"
+    },
+    "hide_ad": {
+      "suggested_key": {
+        "default": "Ctrl+3"
+      },
+      "description": "only hide ADs"
+    }
+  }
+}
